@@ -123,9 +123,14 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
                               children: <Widget>[
                                 Expanded(
                                   flex:3,
-                                  child: Text(StringUtil.utf8convert(senderCountryemoji),textAlign:TextAlign.left,style:
-                                  TextStyle(fontSize: 30),
-                                  ),
+                                  child:Padding(
+                                    padding: EdgeInsets.only(left: 15 ,top:0),
+                                    child:  Text(StringUtil.utf8convert(senderCountryemoji),textAlign:TextAlign.left,style:
+                                    TextStyle(fontSize: 30),
+                                    ),
+                                  )
+                                  
+
                                 ),
                                 Expanded(
                                     flex:6,
@@ -158,7 +163,10 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
                               children: <Widget>[
                                 Expanded(
                                   flex: 3,
-                                  child: Text(
+
+                                  child:Padding(
+                            padding: EdgeInsets.only(left: 15 ,top:0),
+                                 child: Text(
                                     senderCurreyName,
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
@@ -166,6 +174,7 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
                                     ),
                                   ),
                                 ),
+          ),
                                 Expanded(
                                   flex: 7,
                                   child: TextFormField(
@@ -222,9 +231,14 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
                                 children: <Widget>[
                                   Expanded(
                                     flex:3,
-                                    child: Text(StringUtil.utf8convert(recieverCountryemoji)
+                                    child:Padding(
+                                     padding: EdgeInsets.only(left: 15 ,top:0),
+
+                                      child:      Text(StringUtil.utf8convert(recieverCountryemoji)
                                       ,textAlign:TextAlign.left,style: TextStyle(fontSize: 30),),
                                   ),
+                                  ),
+
                                   Expanded(
                                       flex:6,
                                       child:
@@ -257,14 +271,18 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
                                 children: <Widget>[
                                   Expanded(
                                     flex: 3,
-                                    child: Text(
+                                     child:Padding(
+                              padding: EdgeInsets.only(left: 15 ,top:0),
+
+
+                       child: Text(
                                       recieverCurreyName,
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
                                         fontSize: 20,
                                       ),
                                     ),
-                                  ),
+                                  ),),
                                   Expanded(
                                     flex: 7,
                                     child: TextFormField(
