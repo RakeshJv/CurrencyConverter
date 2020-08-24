@@ -178,11 +178,12 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
                                 Expanded(
                                   flex: 7,
                                   child: TextFormField(
-                                    style: TextStyle(color: Colors.black),
+                                    style: TextStyle(color: Colors.black ,fontSize: 30),
                                     controller: controller,
                                     keyboardType: TextInputType.numberWithOptions(decimal: true),
                                     decoration: InputDecoration(
                                       hintText: "Enter Amount",
+                                      hintStyle: TextStyle(color: Colors.black54,fontSize: 15),
                                       suffixIcon: _getClearButton(),
                                     ),
                                   ),
@@ -286,11 +287,12 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
                                   Expanded(
                                     flex: 7,
                                     child: TextFormField(
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.black,fontSize: 30),
                                       controller: controller,
                                       keyboardType: TextInputType.numberWithOptions(decimal: true),
                                       decoration: InputDecoration(
                                         hintText: "Enter Amount",
+                                        hintStyle: TextStyle(color: Colors.black54,fontSize: 15),
                                         suffixIcon: _getClearButton(),
                                       ),
                                     ),
