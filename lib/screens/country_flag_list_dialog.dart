@@ -121,15 +121,31 @@ class CountrySelectionDialogState extends State<CountrySelectionDialog> {
                     children:<Widget> [
                      Text(StringUtil.utf8convert(list[index].code.toUpperCase() )
                        ,style: TextStyle(fontSize: 25), ),
-                      Padding(
-                        padding: EdgeInsets.only(top :10 ,left: 15),
-                        child: Wrap(
+                     Padding(
+                        padding: EdgeInsets.only(top :15 ,left: 15),
+                        child:
 
-            children:<Widget> [  Text(list[index].name ,style: TextStyle(fontSize: 17 ,),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              softWrap: false,),],
-            ),
+
+                          Container(
+                            padding: new EdgeInsets.only(right: 0.0),
+                            child: new Text(
+
+                              list[index].name,
+                              overflow: TextOverflow.clip,
+                              textAlign: TextAlign.right,
+
+            softWrap: false, maxLines: 1,
+                              style: new TextStyle(
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ),
+
+
+
+
+
 
 
 

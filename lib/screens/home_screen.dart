@@ -37,7 +37,7 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
   void initState() {
     // TODO: implement initState
     super.initState();
-    _country =Country();
+                   _country =Country();
 
         senderCountryemoji ="KWD";
         senderCountryMessge ="KWD-Kuwait Dinar";
@@ -67,7 +67,12 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
         return SafeArea(
           child: Container(
               padding: EdgeInsets.only(left: 15, right: 15),
-              child: SingleChildScrollView(
+              child: Scrollbar(
+              child:
+
+              SingleChildScrollView(
+
+                  physics: ClampingScrollPhysics(),
                 child:  Column(
                   children: <Widget>[
                     Padding(
@@ -125,9 +130,18 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
                                   flex:3,
                                   child:Padding(
                                     padding: EdgeInsets.only(left: 15 ,top:0),
-                                    child:  Text(StringUtil.utf8convert(senderCountryemoji),textAlign:TextAlign.left,style:
-                                    TextStyle(fontSize: 30),
-                                    ),
+                                    child:
+                                    InkWell(
+                                        child:   Text(StringUtil.utf8convert(senderCountryemoji),textAlign:TextAlign.left,style:
+                                        TextStyle(fontSize: 30),
+                                        ),
+                                      onTap: (){
+                                        showCountryListDialog( context ,"sender");
+                                      },
+
+                                    )
+
+
                                   )
                                   
 
@@ -139,7 +153,7 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
                                       onTap: (){
                                         showCountryListDialog( context ,"sender");
                                       },
-                                      child:  Text(senderCountryMessge),
+                                      child:Text(senderCountryMessge),
                                     )
                                 ),
                                 Expanded(
@@ -163,7 +177,6 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
                               children: <Widget>[
                                 Expanded(
                                   flex: 3,
-
                                   child:Padding(
                             padding: EdgeInsets.only(left: 15 ,top:0),
                                  child: Text(
@@ -235,9 +248,21 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
                                     child:Padding(
                                      padding: EdgeInsets.only(left: 15 ,top:0),
 
-                                      child:      Text(StringUtil.utf8convert(recieverCountryemoji)
-                                      ,textAlign:TextAlign.left,style: TextStyle(fontSize: 30),),
-                                  ),
+                                      child:
+                                      InkWell(
+                                        onTap: (){
+
+                                          showCountryListDialog( context,"receiver");
+                                        },
+                                        child:
+
+                                        Text(StringUtil.utf8convert(recieverCountryemoji)
+                                          ,textAlign:TextAlign.left,style: TextStyle(fontSize: 30),),
+
+                                      )
+
+
+                                         ),
                                   ),
 
                                   Expanded(
@@ -346,34 +371,49 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
                     Padding(
                       padding: EdgeInsets.only(top:10,),
                       child:  Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
+                           Expanded(
+                             flex: 33,
+                            child: getCard(
+                                 Icon(
+                                   Icons.location_on,
+                                   color: COLORS.CYAN_BLUE_COLOR,
+                                   size: 30,
+                                 ),
+                                 Text(AppString.LABEL_LOCATE_BRANCH ,textAlign:
+                                 TextAlign.center, style: TextStyle(fontSize: 10),) ),
+                           ),
 
-                            getCard(
-                                Icon(
-                                  Icons.location_on,
-                                  color: COLORS.CYAN_BLUE_COLOR,
-                                  size: 40,
-                                ),
+                            Expanded(
+                              flex: 33,
+                              child:
 
-                                Text(AppString.LABEL_LOCATE_BRANCH ,textAlign: TextAlign.center, style: TextStyle(fontSize: 13),) ),
+                              getCard(
+                                  Icon(
+                                    Icons.business_center,
+                                    color: COLORS.CYAN_BLUE_COLOR,
+                                    size: 30,
+
+                                  ),
+                                  Text(AppString.LABEL_PROMOTION , style: TextStyle(fontSize: 10))),
+
+                            ),
+
+                            Expanded(
+                              flex: 33,
+                              child:
+                              getCard(
+                                  Icon(
+                                    Icons.chat,
+                                    color: COLORS.CYAN_BLUE_COLOR,
+                                    size: 30,
+                                  ),
+                                  Text(AppString.LABEL_CHAT_WITH_US, style: TextStyle(fontSize: 10))),
+
+                            ),
 
 
-                            getCard(
-                                Icon(
-                                  Icons.business_center,
-                                  color: COLORS.CYAN_BLUE_COLOR,
-                                  size: 40,
-
-                                ),
-                                Text(AppString.LABEL_PROMOTION)),
-                            getCard(
-                                Icon(
-                                  Icons.chat,
-                                  color: COLORS.CYAN_BLUE_COLOR,
-                                  size: 40,
-                                ),
-                                Text(AppString.LABEL_CHAT_WITH_US)),
                           ]),
                     )
 
@@ -385,7 +425,7 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
 
 
                   ],
-                )),
+                )),)
               )
         );
       },
@@ -399,10 +439,15 @@ class _MyHomePageState extends State<HomeScreen> implements  DialogCallBack{
 
   String data(AsyncSnapshot snapshot)
   {
-  countries = snapshot.data;
-  print("countries----------"+countries.length.toString());
-    Country c = snapshot.data[0];
-        return c.id.toString();
+    try{
+    if(snapshot !=null){
+      countries = snapshot.data;
+      //print("countries----------"+countries.length.toString());
+      Country c = snapshot.data[0];
+      return c.id.toString();
+    }}
+    catch(e){
+    }
 
   }
 
