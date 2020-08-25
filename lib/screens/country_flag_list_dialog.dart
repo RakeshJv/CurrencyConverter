@@ -116,42 +116,37 @@ class CountrySelectionDialogState extends State<CountrySelectionDialog> {
 
 
                   },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children:<Widget> [
-                     Text(StringUtil.utf8convert(list[index].code.toUpperCase() )
-                       ,style: TextStyle(fontSize: 25), ),
-                     Padding(
-                        padding: EdgeInsets.only(top :15 ,left: 15),
-                        child:
+
+                  child:  Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children:<Widget> [
+                        Text(StringUtil.utf8convert(list[index].code.toUpperCase() )
+                          ,style: TextStyle(fontSize: 25),),
+
+                        Expanded(
+                            child:  Padding(
+                              padding: EdgeInsets.only(left: 10),
+                              child: Text(
+                                list.elementAt(index).name,
+                                overflow: TextOverflow.ellipsis,
+                                style: new TextStyle(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ) ,
+                            )
 
 
-                          Container(
-                            padding: new EdgeInsets.only(right: 0.0),
-                            child: new Text(
-
-                              list[index].name,
-                              overflow: TextOverflow.clip,
-                              textAlign: TextAlign.right,
-
-            softWrap: false, maxLines: 1,
-                              style: new TextStyle(
-                                fontSize: 13.0,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ),
-                          ),
+                        )
 
 
 
 
 
+                      ],
+                    ),
 
 
-
-                      )
-                    ],
-                  ),
 
                 ),
               );
